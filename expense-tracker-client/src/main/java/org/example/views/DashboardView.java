@@ -15,6 +15,7 @@ import org.example.utils.ViewNavigator;
 
 import java.math.BigDecimal;
 import java.time.Year;
+import java.util.Objects;
 
 public class DashboardView {
     private String email;
@@ -53,7 +54,11 @@ public class DashboardView {
 
     public void show(){
         Scene scene = createScene();
-        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        scene.getStylesheets().add(
+                Objects.requireNonNull(
+                        getClass().getResource("/org/example/style.css")
+                ).toExternalForm()
+        );
 
         new DashboardController(this);
 

@@ -12,7 +12,9 @@ public class CustomDialog extends Dialog {
         this.user = user;
 
         // add the stylesheet
-        getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        getDialogPane().getStylesheets().add(
+                getClass().getResource("/org/example/style.css").toExternalForm()
+        );
         getDialogPane().getStyleClass().addAll("main-background");
 
         getDialogPane().getButtonTypes().addAll(ButtonType.OK);

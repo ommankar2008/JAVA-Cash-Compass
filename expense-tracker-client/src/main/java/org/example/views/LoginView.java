@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 import org.example.controllers.LoginController;
 import org.example.utils.Utilitie;
 import org.example.utils.ViewNavigator;
+import java.util.Objects;
 
 public class LoginView {
     private Label expenseTrackerLabel = new Label("Cash Compass");
@@ -20,7 +21,11 @@ public class LoginView {
 
     public void show(){
         Scene scene = createScene();
-        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        scene.getStylesheets().add(
+                Objects.requireNonNull(
+                        getClass().getResource("/org/example/style.css")
+                ).toExternalForm()
+        );
 
         new LoginController(this);
         ViewNavigator.switchViews(scene);

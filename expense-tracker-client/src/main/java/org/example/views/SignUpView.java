@@ -12,6 +12,8 @@ import org.example.controllers.SignUpController;
 import org.example.utils.Utilitie;
 import org.example.utils.ViewNavigator;
 
+import java.util.Objects;
+
 public class SignUpView {
     private Label expenseTrackerLabel = new Label("Cash Compass");
     private TextField nameField = new TextField();
@@ -23,7 +25,11 @@ public class SignUpView {
 
     public void show(){
         Scene scene = createScene();
-        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        scene.getStylesheets().add(
+                Objects.requireNonNull(
+                        getClass().getResource("/org/example/style.css")
+                ).toExternalForm()
+        );
 
         new SignUpController(this);
         ViewNavigator.switchViews(scene);
